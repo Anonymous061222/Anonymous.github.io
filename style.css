@@ -1,12 +1,12 @@
 :root {
-  --pitch: #1F4D2C;
-  --pitch-dark: #14331D;
-  --ink: #16241A;
-  --paper: #F7F5EF;
-  --gold: #C89B3C;
-  --muted: #6B7568;
+  --paper: #F5F6FA;
+  --panel: #FFFFFF;
+  --ink: #12131A;
+  --indigo: #2B2E6B;
+  --teal: #29D3C0;
+  --muted: #5B5F73;
 
-  --display: 'Newsreader', serif;
+  --display: 'Space Grotesk', sans-serif;
   --body: 'Inter', sans-serif;
 }
 
@@ -23,61 +23,55 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
+h1, h2, h3 {
+  font-family: var(--display);
+  margin: 0;
+}
+
+p {
+  margin: 0;
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  position: relative;
-  background: var(--pitch);
-  color: var(--paper);
-  padding: 5rem 1.5rem 6rem;
-  overflow: hidden;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1080px;
   margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
 }
 
-.hero-eyebrow {
-  margin: 0 0 1rem;
-  font-size: 0.95rem;
-  color: var(--gold);
-  letter-spacing: 0.02em;
+.hero-text {
+  flex: 1 1 420px;
 }
 
-.hero-name {
-  margin: 0 0 0.75rem;
-  font-family: var(--display);
+.eyebrow {
+  color: var(--indigo);
   font-weight: 600;
-  font-size: clamp(2.75rem, 8vw, 4.5rem);
-  line-height: 1.05;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
 
-.hero-role {
-  margin: 0;
-  font-size: 1.15rem;
-  color: rgba(247, 245, 239, 0.8);
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
 }
 
-/* subtle pitch-line texture in the hero background */
-.hero-field {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(247, 245, 239, 0.05) 0px,
-      rgba(247, 245, 239, 0.05) 1px,
-      transparent 1px,
-      transparent 120px
-    );
+.hero-sub {
+  max-width: 46ch;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.hero-graphic {
+  flex: 0 0 300px;
+  width: 280px;
+  height: auto;
 }
 
 /* ---------- Sections ---------- */
@@ -87,111 +81,168 @@ a {
 }
 
 .section-inner {
-  max-width: 720px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
+.section-inner.narrow {
+  max-width: 680px;
+}
+
 .section h2 {
-  font-family: var(--display);
-  font-weight: 600;
   font-size: 1.75rem;
-  margin: 0 0 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 .section p {
-  max-width: 62ch;
   color: var(--ink);
+  max-width: 62ch;
 }
 
-.about {
-  background: var(--paper);
+/* ---------- How it works ---------- */
+
+.how {
+  background: var(--panel);
+  border-top: 1px solid rgba(18, 19, 26, 0.08);
+  border-bottom: 1px solid rgba(18, 19, 26, 0.08);
 }
 
-/* ---------- Quote ---------- */
-
-.quote {
-  background: var(--pitch-dark);
-  padding: 4rem 1.5rem;
-}
-
-.quote blockquote {
-  margin: 0;
-  max-width: 620px;
-  margin-inline: auto;
-  text-align: center;
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  line-height: 1.35;
-  color: var(--gold);
-}
-
-/* ---------- Hobbies ---------- */
-
-.hobbies {
-  background: var(--paper);
-}
-
-.hobby-grid {
+.how-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 2rem;
 }
 
-.hobby-card {
-  border-top: 2px solid var(--pitch);
-  padding-top: 1rem;
+.how-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
 }
 
-.hobby-mark {
-  display: block;
-  font-family: var(--display);
-  color: var(--gold);
+.how-step h3 {
   font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.hobby-card h3 {
-  margin: 0 0 0.5rem;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.15rem;
-}
-
-.hobby-card p {
-  margin: 0;
+.how-step p {
   font-size: 0.95rem;
   color: var(--muted);
 }
 
-/* ---------- Leadership ---------- */
+/* ---------- Examples ---------- */
 
-.leadership {
-  background: var(--paper);
-  border-top: 1px solid rgba(22, 36, 26, 0.1);
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.example-card {
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid rgba(18, 19, 26, 0.08);
+}
+
+.example-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.75rem;
+}
+
+.example-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.example-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- Trade-offs ---------- */
+
+.tradeoffs {
+  background: var(--indigo);
+  color: var(--paper);
+}
+
+.tradeoffs h2 {
+  color: var(--paper);
+}
+
+.tradeoff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.tradeoff-col h3 {
+  color: var(--teal);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.tradeoff-col ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: rgba(245, 246, 250, 0.9);
+}
+
+.tradeoff-col li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Closing ---------- */
+
+.closing p {
+  color: var(--muted);
+  font-size: 1.05rem;
 }
 
 /* ---------- Footer ---------- */
 
 .footer {
-  background: var(--pitch);
-  color: rgba(247, 245, 239, 0.7);
   text-align: center;
   padding: 2rem 1.5rem;
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 640px) {
-  .hobby-grid {
+@media (max-width: 800px) {
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .example-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tradeoff-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .hero {
-    padding: 3.5rem 1.25rem 4.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 3.5rem;
+  }
+
+  .hero-graphic {
+    width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .example-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -199,7 +250,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--teal);
   outline-offset: 2px;
 }
 
